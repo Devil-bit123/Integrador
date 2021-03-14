@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HotelViewDlg" widgetVar="HotelViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewHotelTitle}">
+            <h:form id="HotelViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{hotelController.selected != null}">
+                        <h:outputText value="#{bundle.ViewHotelLabel_codHot}"/>
+                        <h:outputText value="#{hotelController.selected.codHot}" title="#{bundle.ViewHotelTitle_codHot}"/>
+                        <h:outputText value="#{bundle.ViewHotelLabel_nombre}"/>
+                        <h:outputText value="#{hotelController.selected.nombre}" title="#{bundle.ViewHotelTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewHotelLabel_telf}"/>
+                        <h:outputText value="#{hotelController.selected.telf}" title="#{bundle.ViewHotelTitle_telf}"/>
+                        <h:outputText value="#{bundle.ViewHotelLabel_dir}"/>
+                        <h:outputText value="#{hotelController.selected.dir}" title="#{bundle.ViewHotelTitle_dir}"/>
+                        <h:outputText value="#{bundle.ViewHotelLabel_ruc}"/>
+                        <h:outputText value="#{hotelController.selected.ruc}" title="#{bundle.ViewHotelTitle_ruc}"/>
+                        <h:outputText value="#{bundle.ViewHotelLabel_codEmp}"/>
+                        <h:outputText value="#{hotelController.selected.codEmp}" title="#{bundle.ViewHotelTitle_codEmp}"/>
+                        <h:outputText value="#{bundle.ViewHotelLabel_codHab}"/>
+                        <h:outputText value="#{hotelController.selected.codHab}" title="#{bundle.ViewHotelTitle_codHab}"/>
+                        <h:outputText value="#{bundle.ViewHotelLabel_codClien}"/>
+                        <h:outputText value="#{hotelController.selected.codClien}" title="#{bundle.ViewHotelTitle_codClien}"/>
+                        <h:outputText value="#{bundle.ViewHotelLabel_estadoHot}"/>
+                        <h:outputText value="#{hotelController.selected.estadoHot}" title="#{bundle.ViewHotelTitle_estadoHot}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="HotelViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HabitacionesEditDlg" widgetVar="HabitacionesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditHabitacionesTitle}">
+            <h:form id="HabitacionesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{habitacionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditHabitacionesLabel_codHab}" for="codHab" />
+                        <p:inputText id="codHab" value="#{habitacionesController.selected.codHab}" title="#{bundle.EditHabitacionesTitle_codHab}" required="true" requiredMessage="#{bundle.EditHabitacionesRequiredMessage_codHab}"/>
+                        <p:outputLabel value="#{bundle.EditHabitacionesLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{habitacionesController.selected.nombre}" title="#{bundle.EditHabitacionesTitle_nombre}" required="true" requiredMessage="#{bundle.EditHabitacionesRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditHabitacionesLabel_descHab}" for="descHab" />
+                        <p:inputText id="descHab" value="#{habitacionesController.selected.descHab}" title="#{bundle.EditHabitacionesTitle_descHab}" required="true" requiredMessage="#{bundle.EditHabitacionesRequiredMessage_descHab}"/>
+                        <p:outputLabel value="#{bundle.EditHabitacionesLabel_precio}" for="precio" />
+                        <p:inputText id="precio" value="#{habitacionesController.selected.precio}" title="#{bundle.EditHabitacionesTitle_precio}" required="true" requiredMessage="#{bundle.EditHabitacionesRequiredMessage_precio}"/>
+                        <p:outputLabel value="#{bundle.EditHabitacionesLabel_estadoHab}" for="estadoHab" />
+                        <p:inputText id="estadoHab" value="#{habitacionesController.selected.estadoHab}" title="#{bundle.EditHabitacionesTitle_estadoHab}" required="true" requiredMessage="#{bundle.EditHabitacionesRequiredMessage_estadoHab}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{habitacionesController.update}" value="#{bundle.Save}" update="display,:HabitacionesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'HabitacionesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="HabitacionesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

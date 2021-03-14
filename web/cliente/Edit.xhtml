@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteEditDlg" widgetVar="ClienteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditClienteTitle}">
+            <h:form id="ClienteEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditClienteLabel_clientePK_nombreClien}" for="clientePK_nombreClien" />
+                        <p:inputText id="clientePK_nombreClien" value="#{clienteController.selected.clientePK.nombreClien}" title="#{bundle.EditClienteTitle_clientePK_nombreClien}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clientePK_nombreClien}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_clientePK_dirClien}" for="clientePK_dirClien" />
+                        <p:inputText id="clientePK_dirClien" value="#{clienteController.selected.clientePK.dirClien}" title="#{bundle.EditClienteTitle_clientePK_dirClien}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clientePK_dirClien}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_clientePK_telfClien}" for="clientePK_telfClien" />
+                        <p:inputText id="clientePK_telfClien" value="#{clienteController.selected.clientePK.telfClien}" title="#{bundle.EditClienteTitle_clientePK_telfClien}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clientePK_telfClien}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_clientePK_codClien}" for="clientePK_codClien" />
+                        <p:inputText id="clientePK_codClien" value="#{clienteController.selected.clientePK.codClien}" title="#{bundle.EditClienteTitle_clientePK_codClien}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clientePK_codClien}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_clientePK_apellidoClien}" for="clientePK_apellidoClien" />
+                        <p:inputText id="clientePK_apellidoClien" value="#{clienteController.selected.clientePK.apellidoClien}" title="#{bundle.EditClienteTitle_clientePK_apellidoClien}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clientePK_apellidoClien}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_clientePK_cedClien}" for="clientePK_cedClien" />
+                        <p:inputText id="clientePK_cedClien" value="#{clienteController.selected.clientePK.cedClien}" title="#{bundle.EditClienteTitle_clientePK_cedClien}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clientePK_cedClien}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_estadoClien}" for="estadoClien" />
+                        <p:inputText id="estadoClien" value="#{clienteController.selected.estadoClien}" title="#{bundle.EditClienteTitle_estadoClien}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_estadoClien}"/>
+                        <p:outputLabel value="#{bundle.EditClienteLabel_codCab}" for="codCab" />
+                        <p:inputText id="codCab" value="#{clienteController.selected.codCab}" title="#{bundle.EditClienteTitle_codCab}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_codCab}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{clienteController.update}" value="#{bundle.Save}" update="display,:ClienteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ClienteEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ClienteEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

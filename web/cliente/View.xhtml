@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteViewDlg" widgetVar="ClienteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewClienteTitle}">
+            <h:form id="ClienteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewClienteLabel_clientePK_nombreClien}"/>
+                        <h:outputText value="#{clienteController.selected.clientePK.nombreClien}" title="#{bundle.ViewClienteTitle_clientePK_nombreClien}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_clientePK_dirClien}"/>
+                        <h:outputText value="#{clienteController.selected.clientePK.dirClien}" title="#{bundle.ViewClienteTitle_clientePK_dirClien}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_clientePK_telfClien}"/>
+                        <h:outputText value="#{clienteController.selected.clientePK.telfClien}" title="#{bundle.ViewClienteTitle_clientePK_telfClien}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_clientePK_codClien}"/>
+                        <h:outputText value="#{clienteController.selected.clientePK.codClien}" title="#{bundle.ViewClienteTitle_clientePK_codClien}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_clientePK_apellidoClien}"/>
+                        <h:outputText value="#{clienteController.selected.clientePK.apellidoClien}" title="#{bundle.ViewClienteTitle_clientePK_apellidoClien}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_clientePK_cedClien}"/>
+                        <h:outputText value="#{clienteController.selected.clientePK.cedClien}" title="#{bundle.ViewClienteTitle_clientePK_cedClien}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_estadoClien}"/>
+                        <h:outputText value="#{clienteController.selected.estadoClien}" title="#{bundle.ViewClienteTitle_estadoClien}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_codCab}"/>
+                        <h:outputText value="#{clienteController.selected.codCab}" title="#{bundle.ViewClienteTitle_codCab}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ClienteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

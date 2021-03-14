@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HotelCreateDlg" widgetVar="HotelCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateHotelTitle}">
+            <h:form id="HotelCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{hotelController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateHotelLabel_codHot}" for="codHot" />
+                        <p:inputText id="codHot" value="#{hotelController.selected.codHot}" title="#{bundle.CreateHotelTitle_codHot}" required="true" requiredMessage="#{bundle.CreateHotelRequiredMessage_codHot}"/>
+                        <p:outputLabel value="#{bundle.CreateHotelLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{hotelController.selected.nombre}" title="#{bundle.CreateHotelTitle_nombre}" required="true" requiredMessage="#{bundle.CreateHotelRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateHotelLabel_telf}" for="telf" />
+                        <p:inputText id="telf" value="#{hotelController.selected.telf}" title="#{bundle.CreateHotelTitle_telf}" required="true" requiredMessage="#{bundle.CreateHotelRequiredMessage_telf}"/>
+                        <p:outputLabel value="#{bundle.CreateHotelLabel_dir}" for="dir" />
+                        <p:inputText id="dir" value="#{hotelController.selected.dir}" title="#{bundle.CreateHotelTitle_dir}" required="true" requiredMessage="#{bundle.CreateHotelRequiredMessage_dir}"/>
+                        <p:outputLabel value="#{bundle.CreateHotelLabel_ruc}" for="ruc" />
+                        <p:inputText id="ruc" value="#{hotelController.selected.ruc}" title="#{bundle.CreateHotelTitle_ruc}" required="true" requiredMessage="#{bundle.CreateHotelRequiredMessage_ruc}"/>
+                        <p:outputLabel value="#{bundle.CreateHotelLabel_codEmp}" for="codEmp" />
+                        <p:inputText id="codEmp" value="#{hotelController.selected.codEmp}" title="#{bundle.CreateHotelTitle_codEmp}" />
+                        <p:outputLabel value="#{bundle.CreateHotelLabel_codHab}" for="codHab" />
+                        <p:inputText id="codHab" value="#{hotelController.selected.codHab}" title="#{bundle.CreateHotelTitle_codHab}" />
+                        <p:outputLabel value="#{bundle.CreateHotelLabel_codClien}" for="codClien" />
+                        <p:inputText id="codClien" value="#{hotelController.selected.codClien}" title="#{bundle.CreateHotelTitle_codClien}" />
+                        <p:outputLabel value="#{bundle.CreateHotelLabel_estadoHot}" for="estadoHot" />
+                        <p:inputText id="estadoHot" value="#{hotelController.selected.estadoHot}" title="#{bundle.CreateHotelTitle_estadoHot}" required="true" requiredMessage="#{bundle.CreateHotelRequiredMessage_estadoHot}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{hotelController.create}" value="#{bundle.Save}" update="display,:HotelListForm:datalist,:growl" oncomplete="handleSubmit(args,'HotelCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="HotelCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

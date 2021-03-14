@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HabitacionesCreateDlg" widgetVar="HabitacionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateHabitacionesTitle}">
+            <h:form id="HabitacionesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{habitacionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateHabitacionesLabel_codHab}" for="codHab" />
+                        <p:inputText id="codHab" value="#{habitacionesController.selected.codHab}" title="#{bundle.CreateHabitacionesTitle_codHab}" required="true" requiredMessage="#{bundle.CreateHabitacionesRequiredMessage_codHab}"/>
+                        <p:outputLabel value="#{bundle.CreateHabitacionesLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{habitacionesController.selected.nombre}" title="#{bundle.CreateHabitacionesTitle_nombre}" required="true" requiredMessage="#{bundle.CreateHabitacionesRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateHabitacionesLabel_descHab}" for="descHab" />
+                        <p:inputText id="descHab" value="#{habitacionesController.selected.descHab}" title="#{bundle.CreateHabitacionesTitle_descHab}" required="true" requiredMessage="#{bundle.CreateHabitacionesRequiredMessage_descHab}"/>
+                        <p:outputLabel value="#{bundle.CreateHabitacionesLabel_precio}" for="precio" />
+                        <p:inputText id="precio" value="#{habitacionesController.selected.precio}" title="#{bundle.CreateHabitacionesTitle_precio}" required="true" requiredMessage="#{bundle.CreateHabitacionesRequiredMessage_precio}"/>
+                        <p:outputLabel value="#{bundle.CreateHabitacionesLabel_estadoHab}" for="estadoHab" />
+                        <p:inputText id="estadoHab" value="#{habitacionesController.selected.estadoHab}" title="#{bundle.CreateHabitacionesTitle_estadoHab}" required="true" requiredMessage="#{bundle.CreateHabitacionesRequiredMessage_estadoHab}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{habitacionesController.create}" value="#{bundle.Save}" update="display,:HabitacionesListForm:datalist,:growl" oncomplete="handleSubmit(args,'HabitacionesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="HabitacionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

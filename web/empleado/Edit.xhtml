@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmpleadoEditDlg" widgetVar="EmpleadoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEmpleadoTitle}">
+            <h:form id="EmpleadoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{empleadoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEmpleadoLabel_codEmp}" for="codEmp" />
+                        <p:inputText id="codEmp" value="#{empleadoController.selected.codEmp}" title="#{bundle.EditEmpleadoTitle_codEmp}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_codEmp}"/>
+                        <p:outputLabel value="#{bundle.EditEmpleadoLabel_nombreEmp}" for="nombreEmp" />
+                        <p:inputText id="nombreEmp" value="#{empleadoController.selected.nombreEmp}" title="#{bundle.EditEmpleadoTitle_nombreEmp}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_nombreEmp}"/>
+                        <p:outputLabel value="#{bundle.EditEmpleadoLabel_apellidoEmp}" for="apellidoEmp" />
+                        <p:inputText id="apellidoEmp" value="#{empleadoController.selected.apellidoEmp}" title="#{bundle.EditEmpleadoTitle_apellidoEmp}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_apellidoEmp}"/>
+                        <p:outputLabel value="#{bundle.EditEmpleadoLabel_cedEmp}" for="cedEmp" />
+                        <p:inputText id="cedEmp" value="#{empleadoController.selected.cedEmp}" title="#{bundle.EditEmpleadoTitle_cedEmp}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_cedEmp}"/>
+                        <p:outputLabel value="#{bundle.EditEmpleadoLabel_dirEmp}" for="dirEmp" />
+                        <p:inputText id="dirEmp" value="#{empleadoController.selected.dirEmp}" title="#{bundle.EditEmpleadoTitle_dirEmp}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_dirEmp}"/>
+                        <p:outputLabel value="#{bundle.EditEmpleadoLabel_telf}" for="telf" />
+                        <p:inputText id="telf" value="#{empleadoController.selected.telf}" title="#{bundle.EditEmpleadoTitle_telf}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_telf}"/>
+                        <p:outputLabel value="#{bundle.EditEmpleadoLabel_codRol}" for="codRol" />
+                        <p:inputText id="codRol" value="#{empleadoController.selected.codRol}" title="#{bundle.EditEmpleadoTitle_codRol}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_codRol}"/>
+                        <p:outputLabel value="#{bundle.EditEmpleadoLabel_estadoEmp}" for="estadoEmp" />
+                        <p:inputText id="estadoEmp" value="#{empleadoController.selected.estadoEmp}" title="#{bundle.EditEmpleadoTitle_estadoEmp}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_estadoEmp}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{empleadoController.update}" value="#{bundle.Save}" update="display,:EmpleadoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EmpleadoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EmpleadoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
